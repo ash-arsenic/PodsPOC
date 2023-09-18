@@ -1,0 +1,4 @@
+framework module RPCoreUIComponents {
+  header "RPCoreUIComponents-Swift.h"
+  requires objc
+}

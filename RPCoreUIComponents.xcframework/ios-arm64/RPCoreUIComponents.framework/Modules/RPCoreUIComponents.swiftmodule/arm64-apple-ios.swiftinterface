@@ -1,0 +1,898 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.8.1 (swiftlang-5.8.0.124.5 clang-1403.0.22.11.100)
+// swift-module-flags: -target arm64-apple-ios15.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name RPCoreUIComponents
+// swift-module-flags-ignorable: -enable-bare-slash-regex
+import Combine
+import CommonCrypto
+import Foundation
+import Lottie
+import SafariServices
+import Swift
+import SwiftUI
+import SwiftyRSA
+import UIKit
+import WebKit
+import _Concurrency
+import _StringProcessing
+public struct Shimmer : SwiftUI.ViewModifier {
+  public init(animation: SwiftUI.Animation = Self.defaultAnimation)
+  public static let defaultAnimation: SwiftUI.Animation
+  @_Concurrency.MainActor(unsafe) public func body(content: RPCoreUIComponents.Shimmer.Content) -> some SwiftUI.View
+  
+  public typealias Body = @_opaqueReturnTypeOf("$s18RPCoreUIComponents7ShimmerV4body7contentQr7SwiftUI21_ViewModifier_ContentVyACG_tF", 0) __
+}
+public struct RPAccordionView<Content> : SwiftUI.View where Content : SwiftUI.View {
+  public init(title: Swift.String, openIcon: Swift.String = "plus", closeIcon: Swift.String = "minus", systemImages: Swift.Bool = true, imageSize: CoreFoundation.CGSize = CGSize(width: 24, height: 24), backgroundColor: SwiftUI.Color = Color.profileQrBackgroundColor, foregroundColor: SwiftUI.Color = Color.primaryModerate, cornerRadius: Swift.Int = 5, expanded: Swift.Bool = false, disabled: Swift.Bool = false, onIconClick: ((Swift.Bool) -> Swift.Void)? = nil, @SwiftUI.ViewBuilder content: (() -> Content) = {EmptyView()})
+  @_Concurrency.MainActor(unsafe) public var body: some SwiftUI.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s18RPCoreUIComponents15RPAccordionViewV4bodyQrvp", 0) __<Content>
+}
+public struct Parameters {
+  public init(type: Swift.String? = nil, label: Swift.String? = nil, url: Swift.String? = nil, name: Swift.String? = nil, style: Swift.String? = nil)
+}
+public struct RPFlowText : SwiftUI.View {
+  public init(translationKey: Swift.String, params: [Swift.String : RPCoreUIComponents.Parameters], linkColor: SwiftUI.Color? = nil, onLinkClick: ((Swift.String, Swift.String) -> Swift.Void)? = nil)
+  @_Concurrency.MainActor(unsafe) public var body: some SwiftUI.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s18RPCoreUIComponents10RPFlowTextV4bodyQrvp", 0) __
+}
+public struct RPToastView : SwiftUI.View {
+  public init(toastViewDetails: RPCoreUIComponents.RPToastDetails? = nil, onCancelTapped: @escaping () -> Swift.Void, appWindow: UIKit.UIWindow? = nil)
+  @_Concurrency.MainActor(unsafe) public var body: some SwiftUI.View {
+    get
+  }
+  public static func showToastView(toastDetails: RPCoreUIComponents.RPToastDetails, toastType: RPCoreUIComponents.RPToastType = .success, appWindow: UIKit.UIWindow? = nil)
+  public typealias Body = @_opaqueReturnTypeOf("$s18RPCoreUIComponents11RPToastViewV4bodyQrvp", 0) __
+}
+public struct RPToastDetails {
+  public init(backgroundColor: SwiftUI.Color? = nil, leftIcon: Swift.String = "ic_toast_success", title: Swift.String? = nil, subtitle: Swift.String, subtitleAttibutedString: Foundation.AttributedString = "", rightIcon: Swift.String = "ic_toast_cross")
+}
+public enum RPToastType {
+  case info
+  case warning
+  case error
+  case success
+  public static func == (a: RPCoreUIComponents.RPToastType, b: RPCoreUIComponents.RPToastType) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public struct CurrencyTextField : SwiftUI.UIViewRepresentable {
+  public init(_ placeholder: Swift.String = "", value: SwiftUI.Binding<Swift.Double?>, minimumValue: Swift.Double, isResponder: SwiftUI.Binding<Swift.Bool>? = nil, tag: Swift.Int = 0, alwaysShowFractions: Swift.Bool = false, numberOfDecimalPlaces: Swift.Int = 2, currencySymbol: Swift.String? = nil, font: UIKit.UIFont? = nil, foregroundColor: UIKit.UIColor? = nil, accentColor: UIKit.UIColor? = nil, textAlignment: UIKit.NSTextAlignment? = nil, contentType: UIKit.UITextContentType? = nil, autocorrection: UIKit.UITextAutocorrectionType = .default, autocapitalization: UIKit.UITextAutocapitalizationType = .sentences, keyboardType: UIKit.UIKeyboardType = .decimalPad, returnKeyType: UIKit.UIReturnKeyType = .default, isSecure: Swift.Bool = false, isUserInteractionEnabled: Swift.Bool = true, clearsOnBeginEditing: Swift.Bool = false, onReturn: @escaping () -> Swift.Void = {}, onEditingChanged: @escaping (Swift.Bool) -> Swift.Void = { _ in }, onTextShouldChangeCharacter: @escaping (Swift.String) -> Swift.Void = {_ in})
+  @_Concurrency.MainActor(unsafe) public func makeUIView(context: SwiftUI.UIViewRepresentableContext<RPCoreUIComponents.CurrencyTextField>) -> UIKit.UITextField
+  @_Concurrency.MainActor(unsafe) public func makeCoordinator() -> RPCoreUIComponents.CurrencyTextField.Coordinator
+  @_Concurrency.MainActor(unsafe) public func updateUIView(_ textField: UIKit.UITextField, context: SwiftUI.UIViewRepresentableContext<RPCoreUIComponents.CurrencyTextField>)
+  @_Concurrency.MainActor(unsafe) public static func dismantleUIView(_ uiView: UIKit.UITextField, coordinator: RPCoreUIComponents.CurrencyTextField.Coordinator)
+  @objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) public class Coordinator : ObjectiveC.NSObject, UIKit.UITextFieldDelegate {
+    @_Concurrency.MainActor(unsafe) @objc public func textField(_ textField: UIKit.UITextField, shouldChangeCharactersIn range: Foundation.NSRange, replacementString string: Swift.String) -> Swift.Bool
+    @_Concurrency.MainActor(unsafe) @objc public func textFieldDidBeginEditing(_ textField: UIKit.UITextField)
+    @_Concurrency.MainActor(unsafe) @objc public func textFieldDidEndEditing(_ textField: UIKit.UITextField)
+    @_Concurrency.MainActor(unsafe) @objc public func textFieldShouldReturn(_ textField: UIKit.UITextField) -> Swift.Bool
+    @objc deinit
+  }
+  public typealias Body = Swift.Never
+  public typealias UIViewType = UIKit.UITextField
+}
+public struct RPBaseViewModifier : SwiftUI.ViewModifier {
+  @SwiftUI.Binding @_projectedValueProperty($progress) public var progress: Swift.Double {
+    get
+    nonmutating set
+    nonmutating _modify
+  }
+  public var $progress: SwiftUI.Binding<Swift.Double> {
+    get
+  }
+  @SwiftUI.Binding @_projectedValueProperty($backButtonText) public var backButtonText: Swift.String {
+    get
+    nonmutating set
+    nonmutating _modify
+  }
+  public var $backButtonText: SwiftUI.Binding<Swift.String> {
+    get
+  }
+  @SwiftUI.Binding @_projectedValueProperty($hideBackButton) public var hideBackButton: Swift.Bool {
+    get
+    nonmutating set
+    nonmutating _modify
+  }
+  public var $hideBackButton: SwiftUI.Binding<Swift.Bool> {
+    get
+  }
+  public init(backButtonText: SwiftUI.Binding<Swift.String> = .constant(""), hideBackButton: SwiftUI.Binding<Swift.Bool> = .constant(false), hideTopCorner: Swift.Bool = false, hideNavBar: Swift.Bool = false, rightView: SwiftUI.AnyView? = nil, centerView: SwiftUI.AnyView? = nil, onBack backAction: (() -> Swift.Void)? = nil, navBarColor: SwiftUI.Color = Color(.sRGB, red: 0.298, green: 0.102, blue: 0.518, opacity: 1), progress: SwiftUI.Binding<Swift.Double> = .constant(0.0))
+  @_Concurrency.MainActor(unsafe) public func body(content: RPCoreUIComponents.RPBaseViewModifier.Content) -> some SwiftUI.View
+  
+  public typealias Body = @_opaqueReturnTypeOf("$s18RPCoreUIComponents18RPBaseViewModifierV4body7contentQr7SwiftUI01_dE8_ContentVyACG_tF", 0) __
+}
+@_Concurrency.MainActor(unsafe) public struct RPTextField : SwiftUI.View {
+  @_Concurrency.MainActor(unsafe) public init(field: RPCoreUIComponents.RPTextFieldInfo, onFieldTap: @escaping (() -> Swift.Void) = { }, onRightIcon: @escaping (() -> Swift.Void) = { }, onTextChange: @escaping (() -> Swift.Void) = { }, onReturnKey: @escaping (() -> Swift.Void) = { }, onEditingChanged: @escaping ((Swift.Bool) -> Swift.Void) = { _ in }, onClearText: @escaping (() -> Swift.Void) = { }, onInputAccessoryDone: @escaping (() -> Swift.Void) = { }, hasFocus: Swift.Bool = false, previousText: Swift.String = "")
+  @_Concurrency.MainActor(unsafe) public var body: some SwiftUI.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s18RPCoreUIComponents11RPTextFieldV4bodyQrvp", 0) __
+}
+public struct RPDatePicker : SwiftUI.View {
+  public init(placeholder: Swift.String = "", selectedDate: SwiftUI.Binding<Swift.String> = .constant(""), dateFormat: Swift.String = "yyyy-MM-dd", startDate: Foundation.Date? = nil, endDate: Foundation.Date? = nil, accentColor: SwiftUI.Color? = nil, isMandatory: Swift.Bool? = false, onValueChange: ((Foundation.Date) -> Swift.Void)? = nil)
+  @_Concurrency.MainActor(unsafe) public var body: some SwiftUI.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s18RPCoreUIComponents12RPDatePickerV4bodyQrvp", 0) __
+}
+public struct RPSfSafariView : SwiftUI.UIViewControllerRepresentable {
+  public init(url: Foundation.URL, doneAction: (() -> Swift.Void)? = nil)
+  @_Concurrency.MainActor(unsafe) public func makeUIViewController(context: SwiftUI.UIViewControllerRepresentableContext<RPCoreUIComponents.RPSfSafariView>) -> SafariServices.SFSafariViewController
+  @_Concurrency.MainActor(unsafe) public func updateUIViewController(_ uiViewController: SafariServices.SFSafariViewController, context: SwiftUI.UIViewControllerRepresentableContext<RPCoreUIComponents.RPSfSafariView>)
+  public typealias Body = Swift.Never
+  public typealias Coordinator = Swift.Void
+  public typealias UIViewControllerType = SafariServices.SFSafariViewController
+}
+public enum RPTextFieldState {
+  case inactive, active, error, success
+  public static func == (a: RPCoreUIComponents.RPTextFieldState, b: RPCoreUIComponents.RPTextFieldState) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public enum RPTextFieldMode {
+  case textField, button
+  public static func == (a: RPCoreUIComponents.RPTextFieldMode, b: RPCoreUIComponents.RPTextFieldMode) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public enum RPTextFieldMessgeState {
+  case inactive, active, error, success
+  public static func == (a: RPCoreUIComponents.RPTextFieldMessgeState, b: RPCoreUIComponents.RPTextFieldMessgeState) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public struct RPTextFieldModifier : SwiftUI.ViewModifier {
+  @_Concurrency.MainActor(unsafe) public func body(content: RPCoreUIComponents.RPTextFieldModifier.Content) -> some SwiftUI.View
+  
+  public typealias Body = @_opaqueReturnTypeOf("$s18RPCoreUIComponents19RPTextFieldModifierV4body7contentQr7SwiftUI05_ViewE8_ContentVyACG_tF", 0) __
+}
+public struct FontConstants {
+  public static let PoppinsRegular: Swift.String
+  public static let PoppinsBold: Swift.String
+  public static let PoppinsBoldItalic: Swift.String
+  public static let PoppinsExtraBold: Swift.String
+  public static let PoppinsExtraBoldItalic: Swift.String
+  public static let PoppinsSemiBold: Swift.String
+  public static let PoppinsSemiBoldItalic: Swift.String
+  public static let PoppinsItalic: Swift.String
+  public static let PoppinsBlack: Swift.String
+  public static let PoppinsBlackItalic: Swift.String
+  public static let PoppinsThin: Swift.String
+  public static let PoppinsThinItalic: Swift.String
+  public static let PoppinsLight: Swift.String
+  public static let PoppinsLightItalic: Swift.String
+  public static let PoppinsMedium: Swift.String
+  public static let PoppinsMediumItalic: Swift.String
+  public static let PoppinsExtraLight: Swift.String
+  public static let PoppinsExtraLightItalic: Swift.String
+  public static let LibreBaskervilleItalic: Swift.String
+  public static let LibreBaskervilleRegular: Swift.String
+  public static let LibreBaskervilleBold: Swift.String
+  public static let RobotoMedium: Swift.String
+  public static let RobotoLight: Swift.String
+  public static let RobotoCondensedBold: Swift.String
+  public static let RobotoCondensedLight: Swift.String
+  public static let RobotoRegular: Swift.String
+  public static let RobotoMediumItalic: Swift.String
+  public static let RobotoCondensedItalic: Swift.String
+  public static let RobotoCondensedBoldItalic: Swift.String
+  public static let RobotoCondensedLightItalic: Swift.String
+  public static let RobotoThinItalic: Swift.String
+  public static let RobotoCondensedRegular: Swift.String
+  public static let RobotoBoldItalic: Swift.String
+  public static let RobotoLightItalic: Swift.String
+  public static let RobotoItalic: Swift.String
+  public static let RobotoBlackItalic: Swift.String
+  public static let RobotoBold: Swift.String
+  public static let RobotoThin: Swift.String
+  public static let RobotoBlack: Swift.String
+  public static func getFont(fontType: Swift.String, size: CoreFoundation.CGFloat) -> UIKit.UIFont
+  public static func getCustomFont(fontType: Swift.String, size: CoreFoundation.CGFloat) -> SwiftUI.Font
+}
+public struct DropdownOptions : Swift.Equatable {
+  public let title: Swift.String
+  public let value: Any
+  public let iconUrl: Swift.String?
+  public init(title: Swift.String, value: Any, iconUrl: Swift.String? = nil)
+  public static func == (lhs: RPCoreUIComponents.DropdownOptions, rhs: RPCoreUIComponents.DropdownOptions) -> Swift.Bool
+}
+public struct RPDropdownView : SwiftUI.View {
+  public init(dropdownValue: SwiftUI.Binding<Swift.String>, placeholder: Swift.String = "Choose Option", options: [RPCoreUIComponents.DropdownOptions], appWindow: UIKit.UIWindow? = nil, isMandatory: Swift.Bool? = false, onOptionSelcted: ((RPCoreUIComponents.DropdownOptions) -> Swift.Void)? = nil)
+  @_Concurrency.MainActor(unsafe) public var body: some SwiftUI.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s18RPCoreUIComponents14RPDropdownViewV4bodyQrvp", 0) __
+}
+public struct RPCryptorResult {
+  public let cryptData: Foundation.Data
+  public let key: Foundation.Data
+  public let ivt: Foundation.Data
+  public var cryptDataBase64: Swift.String {
+    get
+  }
+  public var keyBase64: Swift.String {
+    get
+  }
+  public var ivtBase64: Swift.String {
+    get
+  }
+}
+public struct RPCryptor {
+}
+extension RPCoreUIComponents.RPCryptor {
+  public static func aesEncrypt(input: Foundation.Data?, key: Foundation.Data?, ivt: Foundation.Data?) -> RPCoreUIComponents.RPCryptorResult?
+  public static func aes256Encrypt(input: Foundation.Data?) -> RPCoreUIComponents.RPCryptorResult?
+  public static func aesDecrypt(input: Foundation.Data?, key: Foundation.Data?, ivt: Foundation.Data?) -> Swift.String?
+}
+extension Swift.String {
+  public var aes256Encrypted: RPCoreUIComponents.RPCryptorResult? {
+    get
+  }
+  public var aes128Encrypted: RPCoreUIComponents.RPCryptorResult? {
+    get
+  }
+}
+extension Swift.String {
+  public var rsaCasaEncrypted: Swift.String? {
+    get
+  }
+}
+extension Swift.Dictionary {
+  public var aes256Encrypted: RPCoreUIComponents.RPCryptorResult? {
+    get
+  }
+  public var aes128Encrypted: RPCoreUIComponents.RPCryptorResult? {
+    get
+  }
+  public var toCasaEncryptedPayload: [Swift.String : Any?]? {
+    get
+  }
+}
+public struct RPAutoCompleteTextField : SwiftUI.View {
+  public init(placeholder: Swift.String, value: SwiftUI.Binding<Swift.String> = .constant(""), minLength: Swift.Int = 3, maxTextLength: Swift.Int = 12, options: [RPCoreUIComponents.DropdownOptions], alwaysGetTextChangeFeedback: Swift.Bool = false, appWindow: UIKit.UIWindow? = nil, isMandatory: Swift.Bool? = false, disabled: Swift.Bool = false, onTextChange: ((Swift.String) -> Swift.Void)? = nil, onOptionSelected: ((RPCoreUIComponents.DropdownOptions) -> Swift.Void)? = nil)
+  @_Concurrency.MainActor(unsafe) public var body: some SwiftUI.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s18RPCoreUIComponents23RPAutoCompleteTextFieldV4bodyQrvp", 0) __
+}
+public enum RPPinViewTheme {
+  case plain, loginPinView
+  public static func == (a: RPCoreUIComponents.RPPinViewTheme, b: RPCoreUIComponents.RPPinViewTheme) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public enum RPPinViewDistribution {
+  case fixSpacing, equalDistribution
+  public static func == (a: RPCoreUIComponents.RPPinViewDistribution, b: RPCoreUIComponents.RPPinViewDistribution) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public struct RPPinView : SwiftUI.View {
+  public init(text: SwiftUI.Binding<Swift.String>, length: Swift.Int = 4, isSecure: Swift.Bool = false, theme: RPCoreUIComponents.RPPinViewTheme = RPPinViewTheme.plain, isFirstResponder: SwiftUI.Binding<Swift.Bool> = .constant(false), showEye: Swift.Bool = false, hasError: Swift.Bool = false, textColor: SwiftUI.Color = Color.black, width: CoreFoundation.CGFloat = 42, distribution: RPCoreUIComponents.RPPinViewDistribution = .fixSpacing, onComplete: ((Swift.String) -> Swift.Void)? = nil, onTextChange: ((Swift.String) -> Swift.Void)? = nil)
+  @_Concurrency.MainActor(unsafe) public var body: some SwiftUI.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s18RPCoreUIComponents9RPPinViewV4bodyQrvp", 0) __
+}
+@_hasMissingDesignatedInitializers public class RPLoader {
+  public class func showLoader(title: Swift.String = "Please wait...", window: UIKit.UIWindow? = nil)
+  public class func hideLoader(window: UIKit.UIWindow? = nil)
+  @objc deinit
+}
+public struct RPLottieView : SwiftUI.UIViewRepresentable {
+  public init(lottieFile: Swift.String, contentMode: UIKit.UIView.ContentMode = .scaleAspectFit, animationCompleted: (() -> Swift.Void)? = nil)
+  @_Concurrency.MainActor(unsafe) public func makeUIView(context: RPCoreUIComponents.RPLottieView.Context) -> some UIKit.UIView
+  
+  @_Concurrency.MainActor(unsafe) public func updateUIView(_ uiView: @_opaqueReturnTypeOf("$s18RPCoreUIComponents12RPLottieViewV10makeUIView7contextQr7SwiftUI0F20RepresentableContextVyACG_tF", 0) __, context: RPCoreUIComponents.RPLottieView.Context)
+  public typealias Body = Swift.Never
+  public typealias Coordinator = Swift.Void
+  public typealias UIViewType = @_opaqueReturnTypeOf("$s18RPCoreUIComponents12RPLottieViewV10makeUIView7contextQr7SwiftUI0F20RepresentableContextVyACG_tF", 0) __
+}
+public struct RoundedCorner : SwiftUI.Shape {
+  public func path(in rect: CoreFoundation.CGRect) -> SwiftUI.Path
+  public typealias AnimatableData = SwiftUI.EmptyAnimatableData
+  public typealias Body = SwiftUI._ShapeView<RPCoreUIComponents.RoundedCorner, SwiftUI.ForegroundStyle>
+}
+public struct RPBackgroundClearView : SwiftUI.UIViewRepresentable {
+  public init()
+  @_Concurrency.MainActor(unsafe) public func makeUIView(context: RPCoreUIComponents.RPBackgroundClearView.Context) -> UIKit.UIView
+  @_Concurrency.MainActor(unsafe) public func updateUIView(_ uiView: UIKit.UIView, context: RPCoreUIComponents.RPBackgroundClearView.Context)
+  public typealias Body = Swift.Never
+  public typealias Coordinator = Swift.Void
+  public typealias UIViewType = UIKit.UIView
+}
+public class CommonStyles {
+  public init(foregroundColor: Swift.String? = nil, backgroundColor: Swift.String? = nil, fontSize: Swift.Int? = nil, font: Swift.String? = nil, fontWeight: Swift.String? = nil, padding: Swift.Int? = nil, cornerRadius: Swift.Int? = nil)
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class Constants {
+  public static let WEBVIEW_SCRIPT: Swift.String
+  public static let LOADING: Swift.String
+  public static let DATE_FORMAT: Swift.String
+  @objc deinit
+}
+public struct RPSlider : SwiftUI.View {
+  public init(value: SwiftUI.Binding<Swift.Double?>, minValue: Swift.Double = 0, maxValue: Swift.Double = 100, step: Swift.Int = 1, onValueChange: ((Swift.Double) -> Swift.Void)? = nil)
+  @_Concurrency.MainActor(unsafe) public var body: some SwiftUI.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s18RPCoreUIComponents8RPSliderV4bodyQrvp", 0) __
+}
+extension UIKit.UIApplication {
+  @_Concurrency.MainActor(unsafe) public static var keyWindow: UIKit.UIWindow? {
+    get
+  }
+  @_Concurrency.MainActor(unsafe) public static var safeAreaInsets: UIKit.UIEdgeInsets {
+    get
+  }
+  @_Concurrency.MainActor(unsafe) public static var topSafeAreaInset: CoreFoundation.CGFloat {
+    get
+  }
+  @_Concurrency.MainActor(unsafe) public static var bottomSafeAreaInset: CoreFoundation.CGFloat {
+    get
+  }
+}
+extension Swift.String {
+  public var toData: Foundation.Data? {
+    get
+  }
+  public var trimWhiteSpace: Swift.String {
+    get
+  }
+  public func maskedFullAadhar(_ placeHolder: Swift.String = "*") -> Swift.String
+  public func removeSpaceFromString() -> Swift.String
+  public var onlyDigits: Swift.String {
+    get
+  }
+  public mutating func removingRegexMatches(pattern: Swift.String, replaceWith: Swift.String = "")
+  public var hostString: Swift.String? {
+    get
+  }
+  public func checkWithRegex(regex: Swift.String) -> Swift.Bool
+}
+extension Swift.StringProtocol {
+  public subscript(offset: Swift.Int) -> Swift.Character {
+    get
+  }
+}
+public enum RPProgreesBarTheme {
+  case success, warning, error
+  public static func == (a: RPCoreUIComponents.RPProgreesBarTheme, b: RPCoreUIComponents.RPProgreesBarTheme) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public struct RPProgressBarView : SwiftUI.View {
+  public init(theme: RPCoreUIComponents.RPProgreesBarTheme = .success, progress: CoreFoundation.CGFloat)
+  @_Concurrency.MainActor(unsafe) public var body: some SwiftUI.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s18RPCoreUIComponents17RPProgressBarViewV4bodyQrvp", 0) __
+}
+public struct RPProgressBar : SwiftUI.View {
+  public init(value: SwiftUI.Binding<Swift.Double>)
+  @_Concurrency.MainActor(unsafe) public var body: some SwiftUI.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s18RPCoreUIComponents13RPProgressBarV4bodyQrvp", 0) __
+}
+public struct RPNavigationBarModifier : SwiftUI.ViewModifier {
+  @SwiftUI.Binding @_projectedValueProperty($title) public var title: Swift.String {
+    get
+    nonmutating set
+    nonmutating _modify
+  }
+  public var $title: SwiftUI.Binding<Swift.String> {
+    get
+  }
+  @SwiftUI.Binding @_projectedValueProperty($backButtonText) public var backButtonText: Swift.String {
+    get
+    nonmutating set
+    nonmutating _modify
+  }
+  public var $backButtonText: SwiftUI.Binding<Swift.String> {
+    get
+  }
+  @SwiftUI.Binding @_projectedValueProperty($hideBackButton) public var hideBackButton: Swift.Bool {
+    get
+    nonmutating set
+    nonmutating _modify
+  }
+  public var $hideBackButton: SwiftUI.Binding<Swift.Bool> {
+    get
+  }
+  public init(title: SwiftUI.Binding<Swift.String> = .constant(""), backButtonText: SwiftUI.Binding<Swift.String> = .constant(""), hideBackButton: SwiftUI.Binding<Swift.Bool> = .constant(false), rightView: SwiftUI.AnyView? = nil, centerView: SwiftUI.AnyView? = nil, onBack: (() -> ())? = nil, navBarColor: SwiftUI.Color = Color(.sRGB, red: 0.298, green: 0.102, blue: 0.518, opacity: 1))
+  @_Concurrency.MainActor(unsafe) public func body(content: RPCoreUIComponents.RPNavigationBarModifier.Content) -> some SwiftUI.View
+  
+  public typealias Body = @_opaqueReturnTypeOf("$s18RPCoreUIComponents23RPNavigationBarModifierV4body7contentQr7SwiftUI05_ViewE8_ContentVyACG_tF", 0) __
+}
+public struct RPText : SwiftUI.View {
+  public init(_ text: Swift.String, font: SwiftUI.Font? = .body, foregroundColor: SwiftUI.Color = .black, backgroundColor: SwiftUI.Color = .clear, size: CoreFoundation.CGSize? = nil)
+  @_Concurrency.MainActor(unsafe) public var body: some SwiftUI.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s18RPCoreUIComponents6RPTextV4bodyQrvp", 0) __
+}
+public enum RPButtonType {
+  case filled, bordered, text
+  public static func == (a: RPCoreUIComponents.RPButtonType, b: RPCoreUIComponents.RPButtonType) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public struct RPButton : SwiftUI.View {
+  public init(title: Swift.String, image: Swift.String = "", disabled: Swift.Bool = false, type: RPCoreUIComponents.RPButtonType = .filled, commonStyles: RPCoreUIComponents.CommonStyles? = nil, onButtonTap: (() -> Swift.Void)? = nil)
+  @_Concurrency.MainActor(unsafe) public var body: some SwiftUI.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s18RPCoreUIComponents8RPButtonV4bodyQrvp", 0) __
+}
+extension SwiftUI.Color {
+  public static let primaryDarkest: SwiftUI.Color
+  public static let primaryDark: SwiftUI.Color
+  public static let primaryModerate: SwiftUI.Color
+  public static let primaryLight: SwiftUI.Color
+  public static let primaryLightest: SwiftUI.Color
+  public static let primaryBarColor: SwiftUI.Color
+  public static let BarBackgroundColor: SwiftUI.Color
+  public static let neutral3: SwiftUI.Color
+  public static let neutral7: SwiftUI.Color
+  public static let secondaryDarkest: SwiftUI.Color
+  public static let secondaryDark: SwiftUI.Color
+  public static let secondaryModerate: SwiftUI.Color
+  public static let secondaryLight: SwiftUI.Color
+  public static let secondaryLightest: SwiftUI.Color
+  public static let viewBg: SwiftUI.Color
+  public static let segmentBtnUnselectColor: SwiftUI.Color
+  public static let successColor: SwiftUI.Color
+  public static let failColor: SwiftUI.Color
+  public static let pendingColor: SwiftUI.Color
+  public static let disableColor: SwiftUI.Color
+  public static let backgroundColor: SwiftUI.Color
+  public static let titleColor: SwiftUI.Color
+  public static let subTitleColor: SwiftUI.Color
+  public static let iconBlackColor: SwiftUI.Color
+  public static let conditionalBackgroundColor: SwiftUI.Color
+  public static let lightBlackColor: SwiftUI.Color
+  public static let conditionalLinkColor: SwiftUI.Color
+  public static let conditionalWarningBgColor: SwiftUI.Color
+  public static let gray1: SwiftUI.Color
+  public static let blackSecondary45: SwiftUI.Color
+  public static let bottomSheetBackground75: SwiftUI.Color
+  public static let blackDisable25: SwiftUI.Color
+  public static let blackTitle85: SwiftUI.Color
+  public static let black10: SwiftUI.Color
+  public static let sendMoneyBackgroundColor: SwiftUI.Color
+  public static let dividerColor: SwiftUI.Color
+  public static let blueBackgroundColor: SwiftUI.Color
+  public static let profileQrBackgroundColor: SwiftUI.Color
+  public static let dboDetailsBackgroundColor: SwiftUI.Color
+  public static let kitImageBackgroundColor: SwiftUI.Color
+  public static let errorTextColor: SwiftUI.Color
+  public static let simPresentTextolor: SwiftUI.Color
+  public static let successBackground: SwiftUI.Color
+  public static let errorBackground: SwiftUI.Color
+  public static let warningBackground: SwiftUI.Color
+  public static let infoBackground: SwiftUI.Color
+  public static let toastWarningBackground: SwiftUI.Color
+  public static let informationBackground: SwiftUI.Color
+  public static let grey4: SwiftUI.Color
+  public static let grey5: SwiftUI.Color
+  public static let cardShadow: SwiftUI.Color
+  public static let textLightGrey: SwiftUI.Color
+}
+extension SwiftUI.Color {
+  public init(hex: Swift.String)
+}
+extension SwiftUI.View {
+  public func border(_ color: SwiftUI.Color, width: CoreFoundation.CGFloat, cornerRadius: CoreFoundation.CGFloat) -> some SwiftUI.View
+  
+  public func isHidden(_ hidden: Swift.Bool, remove: Swift.Bool = false) -> some SwiftUI.View
+  
+  public func `if`<Content>(_ condition: Swift.Bool, transform: (Self) -> Content) -> some SwiftUI.View where Content : SwiftUI.View
+  
+  public func cornerCurve(_ round: Swift.Bool, _ radius: CoreFoundation.CGFloat, corners: UIKit.UIRectCorner) -> some SwiftUI.View
+  
+  public func nyBaseStyle(backButtonText: Swift.String = "", hideBackButton: Swift.Bool = false, hideTopCorner: Swift.Bool = false, hideNavBar: Swift.Bool = false, rightView: SwiftUI.AnyView? = nil, centerView: SwiftUI.AnyView? = nil, onBack backAction: (() -> Swift.Void)? = nil, navBarColor: SwiftUI.Color = Color(.sRGB, red: 0.298, green: 0.102, blue: 0.518, opacity: 1), progress: SwiftUI.Binding<Swift.Double> = .constant(0.0)) -> some SwiftUI.View
+  
+  public func navBar(title: SwiftUI.Binding<Swift.String> = .constant(""), backButtonText: SwiftUI.Binding<Swift.String> = .constant(""), hideBackButton: SwiftUI.Binding<Swift.Bool> = .constant(false), rightView: SwiftUI.AnyView? = nil, centerView: SwiftUI.AnyView? = nil, onBack: (() -> ())? = nil, navBarColor: SwiftUI.Color = Color(.sRGB, red: 0.298, green: 0.102, blue: 0.518, opacity: 1)) -> some SwiftUI.View
+  
+  public func genericNavigationStyle(backButtonText: Swift.String = "", hideBackButton: Swift.Bool = false, hideTopCorner: Swift.Bool = false, hideNavBar: Swift.Bool = false, rightView: SwiftUI.AnyView? = nil, centerView: SwiftUI.AnyView? = nil, onBack backAction: (() -> ())? = nil, navBarColor: SwiftUI.Color = Color(.sRGB, red: 0.298, green: 0.102, blue: 0.518, opacity: 1), progress: SwiftUI.Binding<Swift.Double> = .constant(0.0)) -> some SwiftUI.View
+  
+  public func hideKeyboard()
+}
+public struct RPCheckBoxView : SwiftUI.View {
+  public init(isSelected: SwiftUI.Binding<Swift.Bool> = .constant(false), text: Swift.String? = nil, imageFrame: CoreFoundation.CGSize? = nil, foregroundColor: SwiftUI.Color? = nil, isDisabled: Swift.Bool? = nil, onStateChange: ((Swift.Bool) -> Swift.Void)? = nil)
+  @_Concurrency.MainActor(unsafe) public var body: some SwiftUI.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s18RPCoreUIComponents14RPCheckBoxViewV4bodyQrvp", 0) __
+}
+public struct RPLogger {
+  public enum LogLevel {
+    case info
+    case warning
+    case error
+    public var prefix: Swift.String {
+      get
+    }
+    public static func == (a: RPCoreUIComponents.RPLogger.LogLevel, b: RPCoreUIComponents.RPLogger.LogLevel) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  public struct Context {
+  }
+  public static func info(logInfo: Any, file: Swift.String = #file, function: Swift.String = #function, line: Swift.Int = #line, shouldShowContext: Swift.Bool = true)
+  public static func warning(logInfo: Any, file: Swift.String = #file, function: Swift.String = #function, line: Swift.Int = #line, shouldShowContext: Swift.Bool = true)
+  public static func error(logInfo: Any, file: Swift.String = #file, function: Swift.String = #function, line: Swift.Int = #line, shouldShowContext: Swift.Bool = true)
+}
+public struct RPIcon : SwiftUI.View {
+  public init(url: Swift.String?, cacheImage: Swift.Bool = true, title: Swift.String? = nil, imageSize: CoreFoundation.CGSize? = nil, frameSize: CoreFoundation.CGSize? = nil)
+  public init(_ imageName: Swift.String, title: Swift.String? = nil, imageSize: CoreFoundation.CGSize? = nil, frameSize: CoreFoundation.CGSize? = nil)
+  public init(systemName: Swift.String, imageFont: SwiftUI.Font? = nil, title: Swift.String? = nil)
+  @_Concurrency.MainActor(unsafe) public var body: some SwiftUI.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s18RPCoreUIComponents6RPIconV4bodyQrvp", 0) __
+}
+extension Swift.Dictionary {
+  public func toData() -> Foundation.Data?
+  public var toJsonString: Swift.String? {
+    get
+  }
+  public func stringForKey(_ key: Key) -> Swift.String
+}
+public enum WebViewType {
+  case consent
+  case payment
+  public static func == (a: RPCoreUIComponents.WebViewType, b: RPCoreUIComponents.WebViewType) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public struct RPWebViewWithTitle : SwiftUI.View {
+  public init(title: Swift.String? = nil, reqString: Swift.String, canShowNavigatonbar: Swift.Bool = false, rightButtonView: SwiftUI.AnyView? = nil, canSharePDF: Swift.Bool? = nil, savedPdfName: Swift.String = "", webViewType: RPCoreUIComponents.WebViewType = .consent, sUrl: Swift.String = "", fUrl: Swift.String = "-", appWindow: UIKit.UIWindow? = nil, onBackClick: (() -> Swift.Void)? = nil, onSuccess: (() -> Swift.Void)? = nil, onFailue: (() -> Swift.Void)? = nil)
+  @_Concurrency.MainActor(unsafe) public var body: some SwiftUI.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s18RPCoreUIComponents18RPWebViewWithTitleV4bodyQrvp", 0) __
+}
+public struct RPStepperView : SwiftUI.View {
+  public init(unFilledColor: SwiftUI.Color = Color(.sRGB, red: 0.957, green: 0.965, blue: 0.98, opacity: 1), filledColor: SwiftUI.Color = Color(.sRGB, red: 0.263, green: 0.627, blue: 0.278, opacity: 1), progressColor: SwiftUI.Color = Color(.sRGB, red: 226/255, green: 24/255, blue: 143/255, opacity: 1), stepCount: Swift.Int = 5, currentIndex: Swift.Int = 0, height: CoreFoundation.CGFloat = 10, currentProgress: SwiftUI.Binding<Swift.Double> = .constant(0.0))
+  @_Concurrency.MainActor(unsafe) public var body: some SwiftUI.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s18RPCoreUIComponents13RPStepperViewV4bodyQrvp", 0) __
+}
+public struct RPIconModifier : SwiftUI.ViewModifier {
+  public init(imageSize: CoreFoundation.CGSize? = nil, frameSize: CoreFoundation.CGSize? = nil)
+  @_Concurrency.MainActor(unsafe) public func body(content: RPCoreUIComponents.RPIconModifier.Content) -> some SwiftUI.View
+  
+  public typealias Body = @_opaqueReturnTypeOf("$s18RPCoreUIComponents14RPIconModifierV4body7contentQr7SwiftUI05_ViewD8_ContentVyACG_tF", 0) __
+}
+public struct RPTimerToggle : SwiftUI.View {
+  public init(startTimer: SwiftUI.Binding<Swift.Bool>, timeRemaining: SwiftUI.Binding<Swift.Int>, timerLowerBound: Swift.Int = 0, staticText: Swift.String = "Resend OTP", staticTextColor: SwiftUI.Color = Color.primaryModerate, onClickAction: (() -> Swift.Void)? = nil, onTimerEnded: (() -> Swift.Void)? = nil)
+  @_Concurrency.MainActor(unsafe) public var body: some SwiftUI.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s18RPCoreUIComponents13RPTimerToggleV4bodyQrvp", 0) __
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) public class LoadingView : RPCoreUIComponents.BaseView {
+  @_Concurrency.MainActor(unsafe) public var loadingModel: RPCoreUIComponents.ViewTransitionModel? {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreFoundation.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) public class BaseView : UIKit.UIView {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreFoundation.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func awakeFromNib()
+  @objc deinit
+}
+public enum RPTextFieldType : Swift.Int {
+  case unknown, pincode, pincodeDropdown, address1, address2, city, state, pan, panWallet, dob, aadhaar, email, name, lastName, fatherOrHusbandName, maritalStatus, employmentType, annualIncome, qualification, permanentAdd, communicationAdd, relationType, salutation, nomineeName, guardianName, nomineeDOB, guardianDOB, guardianSalutaiton, relationWithGuardian, referenceNumber, accountNumber, ifsc, mobileNumber, password, beneficiaryName, bankName, reEnterAccountNumber, branchName, amount, accountType, corporateId, userId, aliasId, accountHolderName, upiId, validFrom, validTill, amountRule, remark, searchBank, mothersMaidenName, selectPaymentMethod
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public class RPTextFieldInfo : Combine.ObservableObject, Swift.Identifiable {
+  public var id: Foundation.UUID
+  public var idx: Swift.String
+  public var type: RPCoreUIComponents.RPTextFieldType
+  public var placeholder: Swift.String
+  public var mode: RPCoreUIComponents.RPTextFieldMode
+  public var maxTextLength: Swift.Int?
+  public var regex: Swift.String?
+  public var showCounter: Swift.Bool?
+  @SwiftUI.Binding @_projectedValueProperty($bindText) public var bindText: Swift.String {
+    get
+    set
+    _modify
+  }
+  public var $bindText: SwiftUI.Binding<Swift.String> {
+    get
+  }
+  @Combine.Published @_projectedValueProperty($disable) public var disable: Swift.Bool {
+    get
+    set
+    _modify
+  }
+  public var $disable: Combine.Published<Swift.Bool>.Publisher {
+    get
+    @available(iOS 14.0, tvOS 14.0, watchOS 7.0, macOS 11.0, *)
+    set
+  }
+  @Combine.Published @_projectedValueProperty($isLoading) public var isLoading: Swift.Bool {
+    get
+    set
+    _modify
+  }
+  public var $isLoading: Combine.Published<Swift.Bool>.Publisher {
+    get
+    @available(iOS 14.0, tvOS 14.0, watchOS 7.0, macOS 11.0, *)
+    set
+  }
+  @Combine.Published @_projectedValueProperty($showClearButton) public var showClearButton: Swift.Bool {
+    get
+    set
+    _modify
+  }
+  public var $showClearButton: Combine.Published<Swift.Bool>.Publisher {
+    get
+    @available(iOS 14.0, tvOS 14.0, watchOS 7.0, macOS 11.0, *)
+    set
+  }
+  @Combine.Published @_projectedValueProperty($showDropdownIcon) public var showDropdownIcon: Swift.Bool {
+    get
+    set
+    _modify
+  }
+  public var $showDropdownIcon: Combine.Published<Swift.Bool>.Publisher {
+    get
+    @available(iOS 14.0, tvOS 14.0, watchOS 7.0, macOS 11.0, *)
+    set
+  }
+  @Combine.Published @_projectedValueProperty($state) public var state: RPCoreUIComponents.RPTextFieldState {
+    get
+    set
+    _modify
+  }
+  public var $state: Combine.Published<RPCoreUIComponents.RPTextFieldState>.Publisher {
+    get
+    @available(iOS 14.0, tvOS 14.0, watchOS 7.0, macOS 11.0, *)
+    set
+  }
+  @Combine.Published @_projectedValueProperty($message) public var message: Swift.String {
+    get
+    set
+    _modify
+  }
+  public var $message: Combine.Published<Swift.String>.Publisher {
+    get
+    @available(iOS 14.0, tvOS 14.0, watchOS 7.0, macOS 11.0, *)
+    set
+  }
+  @Combine.Published @_projectedValueProperty($messageState) public var messageState: RPCoreUIComponents.RPTextFieldMessgeState {
+    get
+    set
+    _modify
+  }
+  public var $messageState: Combine.Published<RPCoreUIComponents.RPTextFieldMessgeState>.Publisher {
+    get
+    @available(iOS 14.0, tvOS 14.0, watchOS 7.0, macOS 11.0, *)
+    set
+  }
+  @Combine.Published @_projectedValueProperty($isFocused) public var isFocused: Swift.Bool {
+    get
+    set
+    _modify
+  }
+  public var $isFocused: Combine.Published<Swift.Bool>.Publisher {
+    get
+    @available(iOS 14.0, tvOS 14.0, watchOS 7.0, macOS 11.0, *)
+    set
+  }
+  @Combine.Published @_projectedValueProperty($isSecure) public var isSecure: Swift.Bool {
+    get
+    set
+    _modify
+  }
+  public var $isSecure: Combine.Published<Swift.Bool>.Publisher {
+    get
+    @available(iOS 14.0, tvOS 14.0, watchOS 7.0, macOS 11.0, *)
+    set
+  }
+  @Combine.Published @_projectedValueProperty($amountSuggetionList) public var amountSuggetionList: [Swift.String]? {
+    get
+    set
+    _modify
+  }
+  public var $amountSuggetionList: Combine.Published<[Swift.String]?>.Publisher {
+    get
+    @available(iOS 14.0, tvOS 14.0, watchOS 7.0, macOS 11.0, *)
+    set
+  }
+  @Combine.Published @_projectedValueProperty($text) public var text: Swift.String {
+    get
+    set
+  }
+  public var $text: Combine.Published<Swift.String>.Publisher {
+    get
+    @available(iOS 14.0, tvOS 14.0, watchOS 7.0, macOS 11.0, *)
+    set
+  }
+  @Combine.Published @_projectedValueProperty($rightIcon) public var rightIcon: SwiftUI.Image? {
+    get
+    set
+    _modify
+  }
+  public var $rightIcon: Combine.Published<SwiftUI.Image?>.Publisher {
+    get
+    @available(iOS 14.0, tvOS 14.0, watchOS 7.0, macOS 11.0, *)
+    set
+  }
+  public var leftView: SwiftUI.AnyView?
+  public var countryCodeView: SwiftUI.AnyView?
+  public var rightView: SwiftUI.AnyView?
+  public var isMandatory: Swift.Bool {
+    get
+    set
+  }
+  public init(idx: Swift.String = "", placeholder: Swift.String = "", type: RPCoreUIComponents.RPTextFieldType = .name, message: Swift.String = "", text: Swift.String = "", showClearButton: Swift.Bool = false, maxTextLength: Swift.Int? = nil, bindText: SwiftUI.Binding<Swift.String> = .constant(""), disable: Swift.Bool = false, isLoading: Swift.Bool = false, state: RPCoreUIComponents.RPTextFieldState = .inactive, messageState: RPCoreUIComponents.RPTextFieldMessgeState = .inactive, mode: RPCoreUIComponents.RPTextFieldMode = .textField, showDropdownIcon: Swift.Bool = false, leftView: SwiftUI.AnyView? = nil, countryCodeView: SwiftUI.AnyView? = nil, rightIcon: SwiftUI.Image? = nil, isMandatory: Swift.Bool = false, isSecure: Swift.Bool = false, showCounter: Swift.Bool = false, rightView: SwiftUI.AnyView? = nil, amountSuggetionList: [Swift.String]? = nil)
+  public typealias ID = Foundation.UUID
+  public typealias ObjectWillChangePublisher = Combine.ObservableObjectPublisher
+  @objc deinit
+}
+public struct ViewTransitionModel {
+  public init(title: Swift.String = Constants.LOADING, type: RPCoreUIComponents.TransitionType, subTitle: Swift.String? = nil, buttonTitle: Swift.String? = nil, image: Swift.String? = nil, status: RPCoreUIComponents.Status? = nil)
+}
+public enum Status {
+  case success
+  case failed
+  case pending
+  public static func == (a: RPCoreUIComponents.Status, b: RPCoreUIComponents.Status) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public enum TransitionType {
+  case loading
+  case success
+  case none
+  public static func == (a: RPCoreUIComponents.TransitionType, b: RPCoreUIComponents.TransitionType) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension UIKit.UIWindow {
+  @_Concurrency.MainActor(unsafe) public static var currentController: UIKit.UIViewController? {
+    get
+  }
+  @_Concurrency.MainActor(unsafe) public var currentController: UIKit.UIViewController? {
+    get
+  }
+  @_Concurrency.MainActor(unsafe) public func topViewController(controller: UIKit.UIViewController? = UIApplication.keyWindow?.rootViewController) -> UIKit.UIViewController?
+}
+public enum AmountMessageState {
+  case error
+  case normal
+  public static func == (a: RPCoreUIComponents.AmountMessageState, b: RPCoreUIComponents.AmountMessageState) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public struct RPAmountView : SwiftUI.View {
+  public init(value: SwiftUI.Binding<Swift.Double?>, title: Swift.String = "Enter Amount", message: Swift.String, messageState: RPCoreUIComponents.AmountMessageState, onTextChange: (() -> Swift.Void)? = nil)
+  @_Concurrency.MainActor(unsafe) public var body: some SwiftUI.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s18RPCoreUIComponents12RPAmountViewV4bodyQrvp", 0) __
+}
+public struct RPPayerPayeeDetail : Swift.Decodable {
+  public init(receiverVpa: Swift.String? = nil, senderVpa: Swift.String? = nil, receiverName: Swift.String? = nil, receiverAccountNumber: Swift.String? = nil, receiverBankName: Swift.String? = nil, receiverBankLogo: Swift.String? = nil, senderName: Swift.String? = nil, senderAvailableAmount: Swift.String? = nil, transferringAmount: Swift.String? = nil, senderMobileNumber: Swift.String? = nil, receiverMobileNumber: Swift.String? = nil, minimumAmount: Swift.String? = nil, qrSign: Swift.String? = nil)
+  public init(from decoder: any Swift.Decoder) throws
+}
+public enum HTTPMethod : Swift.String {
+  case post
+  case get
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct RPApiInfo {
+  public init(url: Swift.String, httpMethod: RPCoreUIComponents.HTTPMethod = .get, httpBody: [Swift.String : Any]? = nil, httpHeaders: [Swift.String : Swift.String] = ["Content-Type": "application/json"], errorHandler: ((any Swift.Error) -> Swift.Void)? = nil, responseHandler: ((Foundation.Data) -> Swift.Void)? = nil)
+}
+@_hasMissingDesignatedInitializers public class RPNetworkManager {
+  public class func requestForApi(info: RPCoreUIComponents.RPApiInfo)
+  @objc deinit
+}
+public class RPMultilingual {
+  public init()
+  public func loc(key: Swift.String) -> Swift.String?
+  @objc deinit
+}
+extension Swift.String {
+  public var loc: Swift.String? {
+    get
+  }
+}
+public struct RPImageView : SwiftUI.View {
+  public init(url: Swift.String?, cacheImage: Swift.Bool = true, contentMode: SwiftUI.ContentMode = .fit, imageSize: CoreFoundation.CGSize? = nil, defaultImage: Swift.String? = nil)
+  public init(_ imageName: Swift.String, contentMode: SwiftUI.ContentMode = .fit, imageSize: CoreFoundation.CGSize? = nil)
+  public init(systemName: Swift.String, imageFont: SwiftUI.Font? = nil)
+  @_Concurrency.MainActor(unsafe) public var body: some SwiftUI.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s18RPCoreUIComponents11RPImageViewV4bodyQrvp", 0) __
+}
+public struct RadioImages {
+}
+public struct RPRadioButtonView : SwiftUI.View {
+  public init(radioGroup: SwiftUI.Binding<Swift.String> = .constant("|"), isActive: SwiftUI.Binding<Swift.Bool> = .constant(false), title: Swift.String, subtitle: Swift.String, name: Swift.String, icons: RPCoreUIComponents.RadioImages? = nil, iconSize: CoreFoundation.CGSize? = nil, iconButton: Swift.String = "", titleStyle: RPCoreUIComponents.CommonStyles? = nil, subtitleStyle: RPCoreUIComponents.CommonStyles? = nil, onButtonClick: ((Swift.String) -> Swift.Void)? = nil, onIconClick: (() -> ())? = nil)
+  @_Concurrency.MainActor(unsafe) public var body: some SwiftUI.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s18RPCoreUIComponents17RPRadioButtonViewV4bodyQrvp", 0) __
+}
+extension RPCoreUIComponents.RPToastType : Swift.Equatable {}
+extension RPCoreUIComponents.RPToastType : Swift.Hashable {}
+extension RPCoreUIComponents.RPTextFieldState : Swift.Equatable {}
+extension RPCoreUIComponents.RPTextFieldState : Swift.Hashable {}
+extension RPCoreUIComponents.RPTextFieldMode : Swift.Equatable {}
+extension RPCoreUIComponents.RPTextFieldMode : Swift.Hashable {}
+extension RPCoreUIComponents.RPTextFieldMessgeState : Swift.Equatable {}
+extension RPCoreUIComponents.RPTextFieldMessgeState : Swift.Hashable {}
+extension RPCoreUIComponents.RPPinViewTheme : Swift.Equatable {}
+extension RPCoreUIComponents.RPPinViewTheme : Swift.Hashable {}
+extension RPCoreUIComponents.RPPinViewDistribution : Swift.Equatable {}
+extension RPCoreUIComponents.RPPinViewDistribution : Swift.Hashable {}
+extension RPCoreUIComponents.RPProgreesBarTheme : Swift.Equatable {}
+extension RPCoreUIComponents.RPProgreesBarTheme : Swift.Hashable {}
+extension RPCoreUIComponents.RPButtonType : Swift.Equatable {}
+extension RPCoreUIComponents.RPButtonType : Swift.Hashable {}
+extension RPCoreUIComponents.RPLogger.LogLevel : Swift.Equatable {}
+extension RPCoreUIComponents.RPLogger.LogLevel : Swift.Hashable {}
+extension RPCoreUIComponents.WebViewType : Swift.Equatable {}
+extension RPCoreUIComponents.WebViewType : Swift.Hashable {}
+extension RPCoreUIComponents.RPTextFieldType : Swift.Equatable {}
+extension RPCoreUIComponents.RPTextFieldType : Swift.Hashable {}
+extension RPCoreUIComponents.RPTextFieldType : Swift.RawRepresentable {}
+extension RPCoreUIComponents.Status : Swift.Equatable {}
+extension RPCoreUIComponents.Status : Swift.Hashable {}
+extension RPCoreUIComponents.TransitionType : Swift.Equatable {}
+extension RPCoreUIComponents.TransitionType : Swift.Hashable {}
+extension RPCoreUIComponents.AmountMessageState : Swift.Equatable {}
+extension RPCoreUIComponents.AmountMessageState : Swift.Hashable {}
+extension RPCoreUIComponents.HTTPMethod : Swift.Equatable {}
+extension RPCoreUIComponents.HTTPMethod : Swift.Hashable {}
+extension RPCoreUIComponents.HTTPMethod : Swift.RawRepresentable {}
